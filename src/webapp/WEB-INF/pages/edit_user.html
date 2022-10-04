@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/users/{id}(id=${editUser.getId()})}" th:object="${editUser}">
+    <div>
+        <label for="name">Имя:</label>
+    </div>
+    <input type="text" th:field="${editUser.name}" id="name"/>
+    <br/>
+    <br/>
+    <div>
+        <label for="last_name">Фамилия:</label>
+    </div>
+    <input type="text" th:field="${editUser.lastName}" id="last_name"/>
+    <br/>
+    <br/>
+    <div>
+        <label for="email">E-mail:</label>
+    </div>
+    <input type="text" th:field="${editUser.email}" id="email"/>
+    <br/>
+    <br/>
+    <input class="layer" type="submit" value="Обновить"/>
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/users/{id}(id=${editUser.getId()})}">
+    <input class="layer" type="submit" value="Удалить"/>
+</form>
+<br/>
+<input class="layer" type="button" onclick="history.back()" value="Назад">
+</body>
+</html>
